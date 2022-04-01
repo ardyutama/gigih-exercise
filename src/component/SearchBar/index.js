@@ -1,7 +1,4 @@
-export default function index({value,onClick}) {
-    const onChange = (e) => {
-        value(e.target.value);
-    }
+export default function index({onChange,onClick}) {
     return(
         <>
             <input onChange={onChange}/>

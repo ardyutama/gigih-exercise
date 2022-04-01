@@ -5,11 +5,13 @@ import ShowGif from "../../component/ShowGif"
 export default function Home(params) {
     const [search,setSearch] = useState("");
     const [data,setData] = useState([]);
-    const onChange = (params) => {
-        setSearch(params);
+    // const [selectedFile,setSelectedFile] = useState(null);
+    const onChange = (e) => {
+        setSearch(e.target.value);
     }
     var url = "http://api.giphy.com/v1/gifs/search"
     var API = "sEUaNvlVBzeW73JPtzeB1eep04vODDIl"
+
     const fetchGIF = () => {
         console.log('click')
         axios.get(url, {
@@ -23,9 +25,10 @@ export default function Home(params) {
                 setData(res.data.data)
             })
     }
+
     return (
         <div>
-            <Searchbar value={onChange} onClick={fetchGIF}/>
+            <Searchbar onChange={onChange} onClick={fetchGIF}/>
             <div>
                 {data.map((value,key)=> {
                     return (

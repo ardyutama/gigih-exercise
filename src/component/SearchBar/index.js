@@ -1,8 +1,10 @@
-export default function index({onChange,onClick}) {
+export default function index({onChange,onClick,onSubmit}) {
     return(
         <>
-            <input onChange={onChange}/>
+        <form onSubmit={onSubmit}>
+            <input onChange={onChange} name="input"/>
             <button type="submit" onClick={onClick}>Button</button>
+        </form>
         </>
     )
 };
